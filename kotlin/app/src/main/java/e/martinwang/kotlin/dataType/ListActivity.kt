@@ -1,7 +1,8 @@
-package e.martinwang.kotlin
+package e.martinwang.kotlin.dataType
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import e.martinwang.kotlin.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**

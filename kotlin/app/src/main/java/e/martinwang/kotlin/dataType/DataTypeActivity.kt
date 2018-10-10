@@ -1,10 +1,9 @@
-package e.martinwang.kotlin
+package e.martinwang.kotlin.dataType
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import e.martinwang.kotlin.R
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.xml.transform.stream.StreamResult
 
 /**
  * Created by martinwang on 2018/10/10.
