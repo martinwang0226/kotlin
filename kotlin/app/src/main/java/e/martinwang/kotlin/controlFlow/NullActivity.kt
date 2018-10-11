@@ -27,7 +27,30 @@ class NullActivity : AppCompatActivity() {
             tv_hello.text = "字符串的长度为$length"
         }
 
-        var length_null:Int?
-        tv_hello.setOnClickListener {  }
+        var length_null: Int?
+        tv_hello.setOnClickListener {
+            length_null = strB?.length
+            tv_hello.text = "使用?. 得到B的长度为$length_null"
+        }
+
+        tv_hello.setOnClickListener {
+            length = strB?.length ?: -1
+            tv_hello.text = "使用?:得到字符串B的长度为$length"
+        }
+
+        tv_hello.setOnClickListener {
+            var strB: String = "排雷完毕"
+            length = strB!!.length
+            tv_hello.text = "使用!!得到字符串B的长度为$length"
+        }
+
+        tv_hello.setOnClickListener {
+            try {
+                length = strB!!.length
+                tv_hello.text ="使用!! 得到字符串B的长度为$length"
+            }catch (e:Exception){
+                tv_hello.text = "发现空指针异常"
+            }
+        }
     }
 }
