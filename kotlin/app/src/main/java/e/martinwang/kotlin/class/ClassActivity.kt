@@ -39,5 +39,52 @@ class ClassActivity : AppCompatActivity() {
                 }
             }
         }
+
+        tv_hello.setOnClickListener {
+            val animal = when (count % 2) {
+                0 -> WildAnimal("animalName")
+                else -> WildAnimal("animalName", 0)
+            }
+            tv_hello.text = "这只${animal.name} 是${if (animal.sex == 0) "公" else "母"}的"
+        }
+
+        tv_hello.setOnClickListener {
+            val animal = when (count % 2) {
+                0 -> WildAnimal("animalName")
+                else -> WildAnimal("animalName", 0)
+            }
+            tv_hello.text = "这只${animal.name} 是${animal.sexName}的"
+        }
+
+        tv_hello.setOnClickListener {
+            val animal = when (count % 2) {
+                0 -> WildAnimalFunction("animalName")
+                else -> WildAnimalFunction("animalName", 0)
+            }
+            tv_hello.text = animal.getDesc("动物园")
+        }
+
+        val sexArray: Array<String> = arrayOf("公", "母", "雄", "雌")
+        tv_hello.setOnClickListener {
+            var sexName: String = sexArray[count++ % 4]
+            tv_hello.text = "\"$sexName\"对应的类型是${WildAnimalCompanion.WildAnimal.judgeSex(sexName)}"
+
+        }
+
+        tv_hello.setOnClickListener {
+            var sexBird = if (count++ % 3 == 0) Bird.Male else Bird.Female
+            var duck = Duck(sex = sexBird)
+            tv_hello.text = duck.getDesc("鸟语林")
+        }
+
+        tv_hello.setOnClickListener {
+            var sexBird = if (count++ % 3 == 0) Bird.Male else Bird.Female
+            var ostrich = Ostrich(sex = sexBird)
+            tv_hello.text = ostrich.getDesc("鸟语林")
+        }
+
+        tv_hello.setOnClickListener {
+            tv_hello.text = Cock().callOut(count++ % 10)
+        }
     }
 }
