@@ -16,5 +16,28 @@ class ClassActivity : AppCompatActivity() {
             var animal = Animal()
             tv_hello.text = "简单类的初始化"
         }
+
+        var count: Int = 0
+        tv_hello.setOnClickListener {
+            when (count % 2) {
+                0 -> {
+                    var animal = AnimalMain(this, "animalName")
+                }
+                else -> {
+                    var animal = AnimalMain(this, "animalName", 0)
+                }
+            }
+        }
+
+        tv_hello.setOnClickListener {
+            when (count % 2) {
+                0 -> {
+                    var animal = AnimalDefault(this, "animalName")
+                }
+                else -> {
+                    var animal = AnimalDefault(this, "animalName", 0)
+                }
+            }
+        }
     }
 }
