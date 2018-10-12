@@ -86,5 +86,29 @@ class ClassActivity : AppCompatActivity() {
         tv_hello.setOnClickListener {
             tv_hello.text = Cock().callOut(count++ % 10)
         }
+
+        tv_hello.setOnClickListener {
+            tv_hello.text = when (count++ % 3) {
+                0 -> Goose().fly()
+                1 -> Goose().swim()
+                else -> Goose().run()
+            }
+        }
+
+        tv_hello.setOnClickListener {
+            var fowl = when (count++ % 6) {
+                0 -> WildFlow("老鹰", Bird.Male, BehaviorFly())
+                1 -> WildFlow("凤凰", behavior = BehaviorFly())
+                else -> WildFlow("企鹅", behavior = BehaviorFly())
+            }
+
+            var action = when (count % 11) {
+                in 0..3 -> fowl.fly()
+                4, 7, 10 -> fowl.swim()
+                else -> fowl.run()
+
+            }
+            tv_hello.text = "${fowl.name}:$action"
+        }
     }
 }
